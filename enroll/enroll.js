@@ -1,3 +1,4 @@
+// Hayley Treutens (578003) Kyle Smith (577999) Zirong Luo (600287) Jonathan Joubert (578085) Web Programming 281 
 document.getElementById('enrollForm').addEventListener('submit', (event) => {
     event.preventDefault();
 
