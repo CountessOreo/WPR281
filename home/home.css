@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -62,4 +61,16 @@ button:hover {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+}
+
+.completed {
+    text-decoration: line-through;
+    background-color: #d3ffd3;
+}
+
+#completedModules {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
 }

@@ -1,4 +1,3 @@
-
 const courses = [
     {
         title: "Bcom",
@@ -54,6 +53,8 @@ const courses = [
     }
 ];
 
+let completedModules = [];
+
 document.getElementById('searchButton').addEventListener('click', () => {
     const query = document.getElementById('searchBar').value.toLowerCase();
     const courseList = document.getElementById('courseList');
@@ -80,12 +81,19 @@ function displayCourseDetails(course) {
     document.getElementById('courseDetails').style.display = 'block';
     document.getElementById('courseTitle').innerText = course.title;
     document.getElementById('courseDescription').innerText = course.description;
+
     const moduleTable = document.getElementById('moduleTable').getElementsByTagName('tbody')[0];
     moduleTable.innerHTML = '';
 
     course.modules.forEach(module => {
         const row = moduleTable.insertRow();
-        row.insertCell(0).innerText = module.name;
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'complete-checkbox';
+        checkbox.addEventListener('change', () => toggleModuleCompletion(module.name));
+        
+        row.insertCell(0).appendChild(checkbox);
+        row.insertCell(0).appendChild(document.createTextNode(` ${module.name}`));
         row.insertCell(1).innerText = module.lecturer;
         row.insertCell(2).innerText = module.venue;
         row.insertCell(3).innerHTML = `
@@ -93,5 +101,79 @@ function displayCourseDetails(course) {
             <a href="${module.video}" target="_blank">Watch Video</a>
         `;
     });
+
+    document.getElementById('enrollButton').style.display = 'inline-block';
+    document.getElementById('viewCompletedModulesButton').style.display = 'inline-block';
+
+    preparePrintableSection(course);
 }
 
+function toggleModuleCompletion(moduleName) {
+    const index = completedModules.indexOf(moduleName);
+    if (index > -1) {
+        completedModules.splice(index, 1);
+    } else {
+        completedModules.push(moduleName);
+    }
+}
+
+document.getElementById('printButton').addEventListener('click', () => {
+    const printWindow = window.open('', '', 'width=800,height=600');
+    printWindow.document.open();
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>Print Course</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f4f4f4; }
+            </style>
+        </head>
+        <body>
+            <h1>${document.getElementById('printableCourseTitle').innerText}</h1>
+            <p>${document.getElementById('printableCourseDescription').innerText}</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Lecturer</th>
+                        <th>Venue</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${document.getElementById('printableModuleTable').innerHTML}
+                </tbody>
+            </table>
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+});
+
+document.getElementById('enrollButton').addEventListener('click', () => {
+    window.location.href = '../enroll/enroll.html';
+});
+
+document.getElementById('viewCompletedModulesButton').addEventListener('click', () => {
+    document.getElementById('courseDetails').style.display = 'none';
+    document.getElementById('completedModulesSection').style.display = 'block';
+
+    const completedModulesList = document.getElementById('completedModulesList');
+    completedModulesList.innerHTML = '';
+
+    completedModules.forEach(module => {
+        const listItem = document.createElement('li');
+        listItem.innerText = module;
+        completedModulesList.appendChild(listItem);
+    });
+});
+
+document.getElementById('backButton').addEventListener('click', () => {
+    document.getElementById('completedModulesSection').style.display = 'none';
+    document.getElementById('courseDetails').style.display = 'block';
+});

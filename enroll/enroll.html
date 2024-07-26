@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enroll</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Enroll in Course</title>
+    <link rel="stylesheet" href="enroll.css">
 </head>
 <body>
-    <div class="main-container">
-        <h1>Enroll in a Course</h1>
+    <div class="enroll-container">
+        <h1>Enroll in Course</h1>
         <form id="enrollForm">
-            <label for="course">Select Course:</label>
-            <select id="course" name="course" required>
-                <option value="higher-certificate">Higher Certificate</option>
-                <option value="diploma">Diploma</option>
-                <option value="bit">BIT</option>
-                <option value="bcom">BCOM</option>
-            </select>
-
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
-            <button type="submit">Submit</button>
+            
+            <label for="course">Select Course:</label>
+            <select id="course" name="course" required>
+                <option value="HIC001">Higher Certificate</option>
+                <option value="DIP001">Diploma</option>
+                <option value="BIT001">BIT</option>
+                <option value="BCOM001">Bcom</option>
+            </select>
+            
+            <button type="submit">Enroll</button>
         </form>
-        <p id="countdown"></p> 
-        <a href="main/main.html" class="btn">Back to Main Page</a>
+        <div id="countdown" class="countdown"></div>
     </div>
     <script src="enroll.js"></script>
 </body>
