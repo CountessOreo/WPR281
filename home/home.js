@@ -1,16 +1,17 @@
 const courses = [
     // Hayley Treutens (578003) Kyle Smith (577999) Zirong Luo (600287) Jonathan Joubert (578085) Web Programming 281
     {
-        title: "Bcom",
+        title: "Bachelor of Computing (Bcomp)",
         code: "BCOM001",
-        duration: "3 years",
-        description: "Bachelor of Commerce in various fields.",
+        duration: "3 years academic, 1 year workplace training",
+        
+        description: "Gain fundamental computer skills of diagnosing and developing workable solutions with our Bachelor of Computing degree. Furthermore, by providing best practices and solutions, you will learn how to apply ideas and integrate them in practical settings across many disciplines.You will get solid theoretical understanding based on practical implementations. In addition, the projects and practical assignments you will finish align with standard procedures in the workplace, giving you both soft and business-specific skills. These abilities include the capacity for teamwork, customer satisfaction training, effective communication, and the capacity to mentor others. Additionally, you will finish an internship at a domestic or foreign business. You will also carry out scholarly study and submit your results in an official dissertation.",
         modules: [
-            { name: "Maths", lecturer: "Dr. Smith", venue: "Room 101", studyGuide: "study_guide_bcom_maths.pdf", video: "https://youtu.be/HeQX2HjkcNo?si=QDDkIuCCIy4j4CCI" },
-            { name: "Linear Programming", lecturer: "Prof. Johnson", venue: "Room 102", studyGuide: "study_guide_bcom_linear_programming.pdf", video: "https://youtu.be/Bzzqx1F23a8?si=1lcEk0TvBDHHGzQf" },
-            { name: "Programming", lecturer: "Dr. Doe", venue: "Room 103", studyGuide: "study_guide_bcom_programming.pdf", video: "https://youtu.be/SS19Q-_saCc?si=sG3Xba-YKEOh7ob4" },
-            { name: "Statistics", lecturer: "Prof. Lee", venue: "Room 104", studyGuide: "study_guide_bcom_statistics.pdf", video: "https://youtu.be/XZo4xyJXCak?si=LfrqLQCvkSLWusth" },
-            { name: "Web Programming", lecturer: "Dr. White", venue: "Room 105", studyGuide: "study_guide_bcom_web_programming.pdf", video: "https://youtu.be/G3e-cpL7ofc?si=EtyIaZy2k7w1V89G" }
+            { name: "Mathematics", lecturer: "Dr. Smith", venue: "Room 101", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Mathematics-181-MAT181.pdf", video: "https://www.youtube.com/watch?v=-2OOBEBq9-4&list=PLSQl0a2vh4HBeeP_1yWmG1mB2uGT08N4J" },
+            { name: "Linear Programming", lecturer: "Prof. Johnson", venue: "Room 102", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Linear-Programming-181-LPR181.pdf", video: "https://www.youtube.com/watch?v=V7H1oUHXPkg" },
+            { name: "Programming", lecturer: "Dr. Doe", venue: "Room 103", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Programming-181-PRG181.pdf", video: "https://www.youtube.com/watch?v=zOjov-2OZ0E" },
+            { name: "Statistics", lecturer: "Prof. Lee", venue: "Room 104", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Statistics-181-STA181.pdf", video: "https://www.youtube.com/watch?v=uhxtUt_-GyM&list=PL1328115D3D8A2566" },
+            { name: "Web Programming", lecturer: "Dr. White", venue: "Room 105", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Web-Programming-181-WPR181.pdf", video: "https://www.youtube.com/watch?v=gQojMIhELvM&list=PLoYCgNOIyGAB_8_iq1cL8MVeun7cB6eNc" }
         ]
     },
     {
@@ -29,14 +30,14 @@ const courses = [
     {
         title: "Diploma",
         code: "DIP001",
-        duration: "2 years",
-        description: "Diploma in various technical fields.",
+        duration: "2½ years of academic training, 6 months of workplace training",
+        description: "This inspiring diploma has trendy specializations that meet the demands of the working world. With these specializations, you'll be able to obtain a degree in high demand and take advantage of a plethora of fascinating employment prospectsThere are two phases to our diploma program in information technology: a general grounding phase and a specialized phase. While the specialization phase is career-oriented, the foundation phase provides knowledge about the realm of information technology.",
         modules: [
-            { name: "Computer Architecture", lecturer: "Dr. Violet", venue: "Room 301", studyGuide: "study_guide_diploma_architecture.pdf", video: "https://youtu.be/dV_lf1kyV9M?si=R3t4exb3NU67Ewvn" },
-            { name: "Problem Solving", lecturer: "Prof. Indigo", venue: "Room 302", studyGuide: "study_guide_diploma_problem_solving.pdf", video: "https://youtu.be/LxgMdjyw8uw?si=U8bvit9_MybfiKpy" },
-            { name: "Internet of Things", lecturer: "Dr. Blue", venue: "Room 303", studyGuide: "study_guide_diploma_iot.pdf", video: "https://youtu.be/LVlT4sX6uVs?si=3i34crxVCmn79Usw" },
-            { name: "End User Computing", lecturer: "Prof. Orange", venue: "Room 304", studyGuide: "study_guide_diploma_euc.pdf", video: "https://youtu.be/h8tvoLPj8g0?si=pGVuTKeZwMrjfSvW" },
-            { name: "Business Communication", lecturer: "Dr. Red", venue: "Room 305", studyGuide: "study_guide_diploma_communication.pdf", video: "https://youtu.be/mvLJuQaLKkg?si=ixdRQH_YyITkcpW8" }
+            { name: "Computer Architecture", lecturer: "Dr. Violet", venue: "Room 301", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Computer-Architecture-161-COA161.pdf", video: "https://www.youtube.com/watch?v=dV_lf1kyV9M" },
+            { name: "Problem Solving", lecturer: "Prof. Indigo", venue: "Room 302", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Problem-Solving-161-PRS161.pdf", video: "https://www.youtube.com/watch?v=E5ENFnMqsHQ" },
+            { name: "Internet of Things", lecturer: "Dr. Blue", venue: "Room 303", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Internet-of-Things-161-IOT161.pdf", video: "https://www.youtube.com/watch?v=6mBO2vqLv38" },
+            { name: "End User Computing", lecturer: "Prof. Orange", venue: "Room 304", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/End-User-Computing-161-EUC161.pdf", video: "https://www.youtube.com/watch?v=h8tvoLPj8g0" },
+            { name: "Business Communication", lecturer: "Dr. Red", venue: "Room 305", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Business-Communication-161-BUC161.pdf", video: "https://www.youtube.com/watch?v=5NhOVyjNnTk" }
         ]
     },
     {
