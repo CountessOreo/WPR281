@@ -6,10 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <header class="header">
+    <header class="header">
+        <div class="header-content">
+            <a href="../home/home.html" class="header-link">
+                <img src="../home/logo2.png" alt="Belgium Campus Logo" class="header-logo">
+                <span class="header-logo-text">Belgium Campus</span>
+            </a>
+        </div>
+    </header>
+    </header>
+
     <div class="login-container">
-        <h1>Login</h1>
+        <div class="login-header">
+
+            <h1>Student Login</h1>
+        </div>
         <form id="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -19,8 +34,9 @@
             
             <button type="submit">Login</button>
         </form>
-        <p id="error-message"></p> 
+        <p id="error-message"></p>
     </div>
-    <script src="login.js"></script> 
+
+    <script src="login.js"></script>
 </body>
 </html>
