@@ -14,7 +14,7 @@ const courses = [
         ]
     },
     {
-        title: "BIT",
+        title: "Bachelor of Information Technology (BIT)",
         code: "BIT001",
         duration: "3 years",
         description: "This IT degree focuses on information systems modules and will equip you with fundamental understanding of software engineering and business intelligence. You will study a wide variety of topics, including mobile and wireless networks, artificial intelligence, and intelligent systems. \nThe IT degree will change you into a full professional with a variety of exciting options to pursue, including the production of mobile and web-based apps, as well as game development.",
@@ -27,7 +27,7 @@ const courses = [
         ]
     },
     {
-        title: "Diploma",
+        title: "Diploma in Information Technology (DIT)",
         code: "DIP001",
         duration: "2½ years of academic training, 6 months of workplace training",
         description: "This inspiring diploma has trendy specializations that meet the demands of the working world. With these specializations, you'll be able to obtain a degree in high demand and take advantage of a plethora of fascinating employment prospectsThere are two phases to our diploma program in information technology: a general grounding phase and a specialized phase. While the specialization phase is career-oriented, the foundation phase provides knowledge about the realm of information technology.",
@@ -40,7 +40,7 @@ const courses = [
         ]
     },
     {
-        title: "Higher Certificate",
+        title: "National Certificate: IT(Systems Development)",
         code: "HIC001",
         duration: "1 year",
         description: "The amount of data around the globe is growing at an exponential rate. The rise of big data has totally revolutionized how businesses conduct themselves and understand their consumers, with organizations analysing massive amounts of data to spot trends and patterns and forecast future consumer behaviour. Given the above, it is unsurprising that the need for professional data gurus with extensive database abilities is growing. This certification will equip you with these abilities and enable you to enter the job market promptly. The information and skills you obtain will enable you to address operational business challenges in the data science domain, helping you to prosper in today's corporate climate.\n\nAfter completing the Higher Certificate: Information Technology (NQF level 6) in Database Development, the student can apply for Recognition of Prior Learning from Belgium Campus iTversity to continue his or her studies in one of the institution's other programs.\n•  Diploma in Information Technology\n•	Bachelor of Information Technology\n•  Bachelor of Computing",
@@ -56,6 +56,17 @@ const courses = [
 
 let completedModules = [];
 let selectedCourse = null;
+
+document.getElementById('backButton').addEventListener('click', () => {
+    document.getElementById('courseDetails').style.display = 'none';
+    document.getElementById('completedModulesSection').style.display = 'none';
+    document.querySelector('#courseList').style.display = 'block';
+});
+
+document.getElementById('goHomeButton').addEventListener('click', () => {
+    window.location.href = 'home.html';
+});
+
 
 document.getElementById('searchButton').addEventListener('click', function() {
     searchCourses();
@@ -111,6 +122,9 @@ function displayCourseDetails(course) {
     selectedCourse = course;
     toggleVisibility('courseList', false);
     toggleVisibility('courseDetails', true);
+    toggleVisibility('searchBar', false);
+    toggleVisibility('searchButton', false);
+
     document.getElementById('courseTitle').innerText = course.title;
     document.getElementById('courseDescription').innerText = course.description;
 
@@ -122,38 +136,54 @@ function displayCourseDetails(course) {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'complete-checkbox';
+        checkbox.setAttribute('data-module', module.name); // Add data-module attribute
         checkbox.checked = completedModules.includes(module.name); // Set checkbox state
         checkbox.addEventListener('change', () => toggleModuleCompletion(module.name));
-        
+
         row.insertCell(0).appendChild(checkbox);
-        row.insertCell(0).appendChild(document.createTextNode(` ${module.name}`));
+        row.insertCell(0).appendChild(document.createTextNode(module.name));
         row.insertCell(1).innerText = module.lecturer;
         row.insertCell(2).innerText = module.venue;
-        row.insertCell(3).innerHTML = `
-            <a href="${module.studyGuide}" download>Download Guide</a> | 
-            <a href="${module.video}" target="_blank">Watch Video</a>
-        `;
+        row.insertCell(3).innerHTML = 
+            `<a href="${module.studyGuide}" download>Download Guide</a> | 
+             <a href="${module.video}" target="_blank">Watch Video</a>`;
+
+        // Apply strikeout if module is completed
+        if (completedModules.includes(module.name)) {
+            row.style.textDecoration = 'line-through';
+        }
     });
 
     document.getElementById('enrollButton').style.display = 'inline-block';
     document.getElementById('viewCompletedModulesButton').style.display = 'inline-block';
 
     preparePrintableSection(course);
-    courseDetails.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('courseDetails').scrollIntoView({ behavior: 'smooth' });
+}
+
+
+function toggleVisibility(elementId, shouldDisplay) {
+    const element = document.getElementById(elementId);
+    element.style.display = shouldDisplay ? 'block' : 'none';
 }
 
 function toggleModuleCompletion(moduleName) {
     const index = completedModules.indexOf(moduleName);
     const checkbox = document.querySelector(`input[type="checkbox"][data-module="${moduleName}"]`);
-    
+    const row = checkbox.closest('tr'); // Get the closest row
+
     if (index > -1) {
         completedModules.splice(index, 1);
-        checkbox.parentElement.style.backgroundColor = ''; 
+        row.style.display = ''; // Make the row visible again
+        checkbox.checked = false; // Uncheck the checkbox
     } else {
         completedModules.push(moduleName);
-        checkbox.parentElement.style.backgroundColor = '#d3ffd3'; 
+        row.style.display = 'none'; // Hide the row
+        checkbox.checked = true; // Check the checkbox
     }
 }
+
+
 
 document.getElementById('printButton').addEventListener('click', () => {
     const printWindow = window.open('', '', 'width=800,height=600');
@@ -224,10 +254,25 @@ function toggleVisibility(elementId, shouldDisplay) {
 
 document.getElementById('backButton').addEventListener('click', () => {
     toggleVisibility('completedModulesSection', false);
-    toggleVisibility('courseDetails', true);
+    toggleVisibility('home.html', true);
 });
 
-// Printable section
+// Printabnt.getElementById('printableCourseDescription').innerText = course.description;
+
+    const printableModuleTable = document.getElementById('printableModuleTable');
+    printableModuleTable.innerHTML = '';
+
+    course.modules.forEach(module => {
+        const row = printableModuleTable.insertRow();
+        row.insertCell(0).innerText = module.name;
+        row.insertCell(1).innerText = module.lecturer;
+        row.insertCell(2).innerText = module.venue;
+        row.insertCell(3).innerHTML = `
+            <a href="${module.studyGuide}" download>Download Guide</a> | 
+            <a href="${module.video}" target="_blank">Watch Video</a>
+        `;
+    });
+
 function preparePrintableSection(course) {
     document.getElementById('printableCourseTitle').innerText = course.title;
     document.getElementById('printableCourseDescription').innerText = course.description;
