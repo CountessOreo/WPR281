@@ -4,7 +4,6 @@ const courses = [
         title: "Bachelor of Computing (Bcomp)",
         code: "BCOM001",
         duration: "3 years academic, 1 year workplace training",
-        
         description: "Gain fundamental computer skills of diagnosing and developing workable solutions with our Bachelor of Computing degree. Furthermore, by providing best practices and solutions, you will learn how to apply ideas and integrate them in practical settings across many disciplines.You will get solid theoretical understanding based on practical implementations. In addition, the projects and practical assignments you will finish align with standard procedures in the workplace, giving you both soft and business-specific skills. These abilities include the capacity for teamwork, customer satisfaction training, effective communication, and the capacity to mentor others. Additionally, you will finish an internship at a domestic or foreign business. You will also carry out scholarly study and submit your results in an official dissertation.",
         modules: [
             { name: "Mathematics", lecturer: "Dr. Smith", venue: "Room 101", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2023/11/Mathematics-181-MAT181.pdf", video: "https://www.youtube.com/watch?v=-2OOBEBq9-4&list=PLSQl0a2vh4HBeeP_1yWmG1mB2uGT08N4J" },
@@ -56,8 +55,19 @@ const courses = [
 ];
 
 let completedModules = [];
+let selectedCourse = null;
 
-document.getElementById('searchButton').addEventListener('click', () => {
+document.getElementById('searchButton').addEventListener('click', function() {
+    searchCourses();
+});
+
+document.getElementById('searchBar').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        searchCourses();
+    }
+});
+
+function searchCourses() {
     const query = document.getElementById('searchBar').value.toLowerCase();
     const courseList = document.getElementById('courseList');
     courseList.innerHTML = '';
@@ -69,18 +79,19 @@ document.getElementById('searchButton').addEventListener('click', () => {
             courseItem.innerHTML = `
                 <h3>${course.title}</h3>
                 <p><strong>Code:</strong> ${course.code}</p>
-                <p><strong>Duration:</strong> ${course.duration}</p>
+                <p><strong>Duration:</strong> ${course.duration}</p><br>
                 <p>${course.description}</p>
             `;
             courseItem.addEventListener('click', () => displayCourseDetails(course));
             courseList.appendChild(courseItem);
         }
     });
-});
+}
 
 function displayCourseDetails(course) {
-    document.getElementById('courseList').style.display = 'none';
-    document.getElementById('courseDetails').style.display = 'block';
+    selectedCourse = course;
+    toggleVisibility('courseList', false);
+    toggleVisibility('courseDetails', true);
     document.getElementById('courseTitle').innerText = course.title;
     document.getElementById('courseDescription').innerText = course.description;
 
@@ -92,6 +103,7 @@ function displayCourseDetails(course) {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'complete-checkbox';
+        checkbox.checked = completedModules.includes(module.name); // Set checkbox state
         checkbox.addEventListener('change', () => toggleModuleCompletion(module.name));
         
         row.insertCell(0).appendChild(checkbox);
@@ -112,10 +124,14 @@ function displayCourseDetails(course) {
 
 function toggleModuleCompletion(moduleName) {
     const index = completedModules.indexOf(moduleName);
+    const checkbox = document.querySelector(`input[type="checkbox"][data-module="${moduleName}"]`);
+    
     if (index > -1) {
         completedModules.splice(index, 1);
+        checkbox.parentElement.style.backgroundColor = ''; 
     } else {
         completedModules.push(moduleName);
+        checkbox.parentElement.style.backgroundColor = '#d3ffd3'; 
     }
 }
 
@@ -162,20 +178,64 @@ document.getElementById('enrollButton').addEventListener('click', () => {
 });
 
 document.getElementById('viewCompletedModulesButton').addEventListener('click', () => {
-    document.getElementById('courseDetails').style.display = 'none';
-    document.getElementById('completedModulesSection').style.display = 'block';
+    toggleVisibility('courseDetails', false);
+    toggleVisibility('completedModulesSection', true);
 
     const completedModulesList = document.getElementById('completedModulesList');
-    completedModulesList.innerHTML = '';
+    completedModulesList.innerHTML = ''; // Clear the list
 
-    completedModules.forEach(module => {
-        const listItem = document.createElement('li');
-        listItem.innerText = module;
-        completedModulesList.appendChild(listItem);
-    });
+    if (completedModules.length === 0) {
+        completedModulesList.innerHTML = '<p>No modules completed yet.</p>';
+    } else {
+        const ol = document.createElement('ol');
+        completedModules.forEach(module => {
+            const li = document.createElement('li');
+            li.innerText = module;
+            ol.appendChild(li);
+        });
+        completedModulesList.appendChild(ol);
+    }
 });
+
+function toggleVisibility(elementId, shouldDisplay) {
+    const element = document.getElementById(elementId);
+    element.style.display = shouldDisplay ? 'block' : 'none';
+}
+
+
+function toggleVisibility(elementId, shouldDisplay) {
+    const element = document.getElementById(elementId);
+    element.style.display = shouldDisplay ? 'block' : 'none';
+}
+
 
 document.getElementById('backButton').addEventListener('click', () => {
-    document.getElementById('completedModulesSection').style.display = 'none';
-    document.getElementById('courseDetails').style.display = 'block';
+    toggleVisibility('completedModulesSection', false);
+    toggleVisibility('courseDetails', true);
 });
+
+
+function toggleVisibility(elementId, shouldDisplay) {
+    const element = document.getElementById(elementId);
+    element.style.display = shouldDisplay ? 'block' : 'none';
+}
+
+// Printable section
+function preparePrintableSection(course) {
+    document.getElementById('printableCourseTitle').innerText = course.title;
+    document.getElementById('printableCourseDescription').innerText = course.description;
+
+    const printableModuleTable = document.getElementById('printableModuleTable');
+    printableModuleTable.innerHTML = '';
+
+    course.modules.forEach(module => {
+        const row = printableModuleTable.insertRow();
+        row.insertCell(0).innerText = module.name;
+        row.insertCell(1).innerText = module.lecturer;
+        row.insertCell(2).innerText = module.venue;
+        row.insertCell(3).innerHTML = `
+            <a href="${module.studyGuide}" download>Download Guide</a> | 
+            <a href="${module.video}" target="_blank">Watch Video</a>
+        `;
+    });
+}
