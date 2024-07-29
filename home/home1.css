@@ -351,6 +351,14 @@ input[type="text"] {
     padding-bottom: 50px;
 }
 
+.no-completed-modules {
+    font-size: 16px;
+    color: #ff0000; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom:20px ;
+}
 @media (max-width: 995px) {
     .courses {
         flex-direction: column;

@@ -185,7 +185,7 @@ document.getElementById('viewCompletedModulesButton').addEventListener('click', 
     completedModulesList.innerHTML = ''; // Clear the list
 
     if (completedModules.length === 0) {
-        completedModulesList.innerHTML = '<p>No modules completed yet.</p>';
+        completedModulesList.innerHTML = '<p class="no-completed-modules">No modules have been completed yet.</p>';
     } else {
         const ol = document.createElement('ol');
         completedModules.forEach(module => {
@@ -202,23 +202,10 @@ function toggleVisibility(elementId, shouldDisplay) {
     element.style.display = shouldDisplay ? 'block' : 'none';
 }
 
-
-function toggleVisibility(elementId, shouldDisplay) {
-    const element = document.getElementById(elementId);
-    element.style.display = shouldDisplay ? 'block' : 'none';
-}
-
-
 document.getElementById('backButton').addEventListener('click', () => {
     toggleVisibility('completedModulesSection', false);
     toggleVisibility('courseDetails', true);
 });
-
-
-function toggleVisibility(elementId, shouldDisplay) {
-    const element = document.getElementById(elementId);
-    element.style.display = shouldDisplay ? 'block' : 'none';
-}
 
 // Printable section
 function preparePrintableSection(course) {
