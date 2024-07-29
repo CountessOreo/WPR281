@@ -81,10 +81,12 @@ function searchCourses() {
                 const courseItem = document.createElement('div');
                 courseItem.className = 'course-item';
                 courseItem.innerHTML = `
-                    <h3>${course.title}</h3>
-                    <p><strong>Code:</strong> ${course.code}</p>
-                    <p><strong>Duration:</strong> ${course.duration}</p><br>
-                    <p>${course.description}</p>
+                    <div class="course-details">
+                        <h3>${course.title}</h3>
+                        <p><strong>Code:</strong> ${course.code}</p>
+                        <p><strong>Duration:</strong> ${course.duration}</p>
+                        <p>${course.description}</p>
+                    </div>
                 `;
                 courseItem.addEventListener('click', () => displayCourseDetails(course));
                 courseList.appendChild(courseItem);
@@ -101,6 +103,7 @@ function searchCourses() {
 
     courseList.scrollIntoView({ behavior: 'smooth' });
 }
+
 
 
 
