@@ -236,7 +236,14 @@ button:hover {
 /* Search Container */
 .search-container {
     text-align: center;
+    opacity: 0;
+    animation: fadeIn 5s forwards;
+}
 
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 input[type="text"] {
@@ -250,6 +257,16 @@ input[type="text"] {
 /* Course List and Details */
 #courseList {
     margin-top: 20px;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideIn 3s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .course-item {
@@ -276,6 +293,14 @@ input[type="text"] {
     max-width: 80%;
     margin: 20px auto;
     box-shadow: 0 2px 4px rgba(226, 19, 19);
+}
+
+.no-courses-found {
+    color: red;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
 }
 
 #courseTitle {
@@ -359,6 +384,8 @@ input[type="text"] {
     margin-top: 20px;
     padding-bottom:20px ;
 }
+
+
 @media (max-width: 995px) {
     .courses {
         flex-direction: column;

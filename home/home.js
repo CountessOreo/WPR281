@@ -72,21 +72,37 @@ function searchCourses() {
     const courseList = document.getElementById('courseList');
     courseList.innerHTML = '';
 
-    courses.forEach(course => {
-        if (course.title.toLowerCase().includes(query)) {
-            const courseItem = document.createElement('div');
-            courseItem.className = 'course-item';
-            courseItem.innerHTML = `
-                <h3>${course.title}</h3>
-                <p><strong>Code:</strong> ${course.code}</p>
-                <p><strong>Duration:</strong> ${course.duration}</p><br>
-                <p>${course.description}</p>
-            `;
-            courseItem.addEventListener('click', () => displayCourseDetails(course));
-            courseList.appendChild(courseItem);
-        }
-    });
+    let found = false;
+
+    if (query.length > 0) {
+        courses.forEach(course => {
+            if (course.title.toLowerCase().includes(query)) {
+                found = true;
+                const courseItem = document.createElement('div');
+                courseItem.className = 'course-item';
+                courseItem.innerHTML = `
+                    <h3>${course.title}</h3>
+                    <p><strong>Code:</strong> ${course.code}</p>
+                    <p><strong>Duration:</strong> ${course.duration}</p><br>
+                    <p>${course.description}</p>
+                `;
+                courseItem.addEventListener('click', () => displayCourseDetails(course));
+                courseList.appendChild(courseItem);
+            }
+        });
+    }
+
+    if (!found) {
+        const noCoursesItem = document.createElement('li');
+        noCoursesItem.className = 'no-courses-found';
+        noCoursesItem.innerText = 'No courses found';
+        courseList.appendChild(noCoursesItem);
+    }
+
+    courseList.scrollIntoView({ behavior: 'smooth' });
 }
+
+
 
 function displayCourseDetails(course) {
     selectedCourse = course;
@@ -120,6 +136,7 @@ function displayCourseDetails(course) {
     document.getElementById('viewCompletedModulesButton').style.display = 'inline-block';
 
     preparePrintableSection(course);
+    courseDetails.scrollIntoView({ behavior: 'smooth' });
 }
 
 function toggleModuleCompletion(moduleName) {
