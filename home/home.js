@@ -1,5 +1,7 @@
 const courses = [
     // Hayley Treutens (578003) Kyle Smith (577999) Zirong Luo (600287) Jonathan Joubert (578085) Web Programming 281
+    
+    // Course details
     {
         title: "Bachelor of Computing (Bcomp)",
         code: "BCOM001",
@@ -54,9 +56,11 @@ const courses = [
     }
 ];
 
+
 let completedModules = [];
 let selectedCourse = null;
 
+// Course back button
 document.getElementById('backButton').addEventListener('click', () => {
     document.getElementById('courseDetails').style.display = 'none';
     document.getElementById('completedModulesSection').style.display = 'none';
@@ -67,7 +71,7 @@ document.getElementById('goHomeButton').addEventListener('click', () => {
     window.location.href = 'home.html';
 });
 
-
+// Search Button
 document.getElementById('searchButton').addEventListener('click', function() {
     searchCourses();
 });
@@ -115,9 +119,7 @@ function searchCourses() {
     courseList.scrollIntoView({ behavior: 'smooth' });
 }
 
-
-
-
+// Display course details
 function displayCourseDetails(course) {
     selectedCourse = course;
     toggleVisibility('courseList', false);
@@ -183,50 +185,12 @@ function toggleModuleCompletion(moduleName) {
     }
 }
 
-
-
-document.getElementById('printButton').addEventListener('click', () => {
-    const printWindow = window.open('', '', 'width=800,height=600');
-    printWindow.document.open();
-    printWindow.document.write(`
-        <html>
-        <head>
-            <title>Print Course</title>
-            <style>
-                body { font-family: Arial, sans-serif; margin: 20px; }
-                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-                th { background-color: #f4f4f4; }
-            </style>
-        </head>
-        <body>
-            <h1>${document.getElementById('printableCourseTitle').innerText}</h1>
-            <p>${document.getElementById('printableCourseDescription').innerText}</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Module</th>
-                        <th>Lecturer</th>
-                        <th>Venue</th>
-                        <th>Links</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${document.getElementById('printableModuleTable').innerHTML}
-                </tbody>
-            </table>
-        </body>
-        </html>
-    `);
-    printWindow.document.close();
-    printWindow.focus();
-    printWindow.print();
-});
-
+// Enroll button
 document.getElementById('enrollButton').addEventListener('click', () => {
     window.location.href = '../enroll/enroll.html';
 });
 
+// Completed modules button
 document.getElementById('viewCompletedModulesButton').addEventListener('click', () => {
     toggleVisibility('courseDetails', false);
     toggleVisibility('completedModulesSection', true);
@@ -257,21 +221,86 @@ document.getElementById('backButton').addEventListener('click', () => {
     toggleVisibility('home.html', true);
 });
 
-// Printabnt.getElementById('printableCourseDescription').innerText = course.description;
+// Print course details
+document.getElementById('printButton').addEventListener('click', () => {
+    const printWindow = window.open('', '', 'width=800,height=600');
+    printWindow.document.open();
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>Print Course</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f4f4f4; }
+                h2 { margin-top: 40px; }
+            </style>
+        </head>
+        <body>
+            <h1>${document.getElementById('printableCourseTitle').innerText}</h1>
+            <p>${document.getElementById('printableCourseDescription').innerText}</p>
+            <h2>Course Modules</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Lecturer</th>
+                        <th>Venue</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${document.getElementById('printableModuleTable').innerHTML}
+                </tbody>
+            </table>
+            <h2>Completed Modules</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Lecturer</th>
+                        <th>Venue</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${generateCompletedModulesTable()}
+                </tbody>
+            </table>
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+});
 
-    const printableModuleTable = document.getElementById('printableModuleTable');
-    printableModuleTable.innerHTML = '';
-
-    course.modules.forEach(module => {
-        const row = printableModuleTable.insertRow();
-        row.insertCell(0).innerText = module.name;
-        row.insertCell(1).innerText = module.lecturer;
-        row.insertCell(2).innerText = module.venue;
-        row.insertCell(3).innerHTML = `
-            <a href="${module.studyGuide}" download>Download Guide</a> | 
-            <a href="${module.video}" target="_blank">Watch Video</a>
-        `;
-    });
+function generateCompletedModulesTable() {
+    let completedModulesTableHTML = '';
+    if (completedModules.length > 0) {
+        courses.forEach(course => {
+            course.modules.forEach(module => {
+                if (completedModules.includes(module.name)) {
+                    completedModulesTableHTML += `
+                        <tr>
+                            <td>${module.name}</td>
+                            <td>${module.lecturer}</td>
+                            <td>${module.venue}</td>
+                            <td>
+                                <a href="${module.studyGuide}" download>Download Guide</a> | 
+                                <a href="${module.video}" target="_blank">Watch Video</a>
+                            </td>
+                        </tr>
+                    `;
+                }
+            });
+        });
+    } else {
+        completedModulesTableHTML = '<tr><td colspan="4">No completed modules.</td></tr>';
+    }
+    return completedModulesTableHTML;
+}
 
 function preparePrintableSection(course) {
     document.getElementById('printableCourseTitle').innerText = course.title;
