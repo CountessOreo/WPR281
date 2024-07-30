@@ -25,4 +25,29 @@ document.getElementById('enrollForm').addEventListener('submit', (event) => {
     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
     document.getElementById('countdown').innerText = `You have been successfully enrolled! Course starts in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+
+    createFireworks();
 });
+
+function createFireworks() {
+    const colors = ['color1', 'color2', 'color3', 'color4'];
+    for (let i = 0; i < 5; i++) { 
+        colors.forEach(color => {
+            const firework = document.createElement('div');
+            firework.classList.add('firework', color);
+            
+            document.body.appendChild(firework);
+
+            // Randomize position 
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            firework.style.top = `${Math.random() * viewportHeight}px`;
+            firework.style.left = `${Math.random() * viewportWidth}px`;
+
+            setTimeout(() => {
+                firework.remove();
+            }, 2000); 
+        });
+    }
+}
