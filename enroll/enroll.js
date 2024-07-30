@@ -2,6 +2,7 @@
 document.getElementById('enrollForm').addEventListener('submit', (event) => {
     event.preventDefault();
 
+    const applicantName = document.getElementById("name").value;
     const courseCode = document.getElementById('course').value;
     const courseStartDates = {
         "HIC001": "2024-09-01",
@@ -24,7 +25,7 @@ document.getElementById('enrollForm').addEventListener('submit', (event) => {
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-    document.getElementById('countdown').innerText = `You have been successfully enrolled! Course starts in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+    document.getElementById('countdown').innerText = `Congratulations ${applicantName}!!! You have been successfully enrolled! Course starts in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
 
     createFireworks();
 });
