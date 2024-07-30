@@ -53,8 +53,9 @@ function createFireworks() {
     }
 }
 
+//Changes "enroll" -> "enrolled" when clicking button
 function changeButtonText(){
-    if (document.getElementById("name").value == ""){
+    if (document.getElementById("name").value == "" || document.getElementById("email").value == ""){
         document.getElementById("btn").innerHTML = "Enroll";
     }else{
         document.getElementById("btn").innerHTML = "Enrolled";
