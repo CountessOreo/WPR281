@@ -1,56 +1,158 @@
-/* Hayley Treutens (578003) Kyle Smith (577999) Zirong Luo (600287) Jonathan Joubert (578085) Web Programming 281 */
+/* Common Variables */
+:root {
+    --bg-color: #000000;
+    --second-bg-color: #161616;
+    --text-color: #ffffff;
+    --main-color: #ebe831;
+    --second-color: #f00e0e;
+    --highlight-color: #ff0000; /* Red glow */
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
+    flex-direction: column;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.header-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-logo {
+    width: 100px; /* Increased size */
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-shadow: 0 0 25px var(--highlight-color); /* Red glow effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* Pop up effect on hover */
+    box-shadow: 0 0 40px var(--highlight-color); /* Stronger glow on hover */
+}
+
+.header-logo-text {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    font-weight: 800;
+    transition: color 0.3s;
+}
+
+.header-link:hover .header-logo-text {
+    color: var(--highlight-color);
 }
 
 .login-container {
-    background: #fff;
-    padding: 20px;
-    padding-right: 40px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
     width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: var(--second-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 100px; /* Adjust for header */
 }
 
-h1 {
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
+.logo-container {
+    margin-bottom: 15px;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--highlight-color);
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.logo-img:hover {
+    transform: scale(1.1); /* Pop up effect on hover */
+    box-shadow: 0 0 40px var(--highlight-color); /* Stronger glow on hover */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 label {
-    display: block;
-    margin-bottom: 8px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
 input {
-    width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 15px;
     border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #333;
 }
 
 button {
-    width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    font-size: 1.5rem;
     color: #fff;
+    background-color: var(--second-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--main-color);
+    color: black;
 }
 
 #error-message {
     color: red;
-    font-size: 0.9em;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-align: center;
 }
