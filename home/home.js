@@ -119,6 +119,8 @@ function searchCourses() {
     courseList.scrollIntoView({ behavior: 'smooth' });
 }
 
+
+
 // Display course details
 function displayCourseDetails(course) {
     selectedCourse = course;
