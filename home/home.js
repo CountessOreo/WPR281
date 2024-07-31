@@ -21,11 +21,11 @@ const courses = [
         duration: "3 years",
         description: "This IT degree focuses on information systems modules and will equip you with fundamental understanding of software engineering and business intelligence. You will study a wide variety of topics, including mobile and wireless networks, artificial intelligence, and intelligent systems. \nThe IT degree will change you into a full professional with a variety of exciting options to pursue, including the production of mobile and web-based apps, as well as game development.",
         modules: [
-            { name: "Database Sciences", lecturer: "Dr. Emily Johnson", venue: "Alpha Classroom", studyGuide: "study_guide_bit_database.pdf", video: "https://youtu.be/Zc14ZkWVhhs?si=il7svGI0BrQo0AtD" },
-            { name: "Networking", lecturer: "Professor David Lee", venue: "Beta Classroom", studyGuide: "study_guide_bit_networking.pdf", video: "https://youtu.be/keeqnciDVOo?si=TM4HZgd13TMviA8r" },
-            { name: "Business", lecturer: "Dr. Maria Rodriguez", venue: "Gamma Classroom", studyGuide: "study_guide_bit_business.pdf", video: "https://youtu.be/jffyqZRIcHc?si=RmavyZs8QzsVCQrf" },
-            { name: "Maths", lecturer: "Professor James Carter", venue: "Phi Classroom", studyGuide: "study_guide_bit_maths.pdf", video: "https://youtu.be/xX5caFM5xMY?si=PgDpmiWJ9IVv689l" },
-            { name: "Information Systems", lecturer: "Dr. Sarah Patel", venue: "Epsilon Classroom", studyGuide: "study_guide_bit_info_systems.pdf", video: "https://youtu.be/Qujsd4vkqFI?si=bTo5mIatJBblZUIS" }
+            { name: "Database", lecturer: "Dr. Emily Johnson", venue: "Alpha Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Database-Development-171-DBD171.pdf", video: "https://youtu.be/Zc14ZkWVhhs?si=il7svGI0BrQo0AtD" },
+            { name: "Networking", lecturer: "Professor David Lee", venue: "Beta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Network-Development-171-NWD171.pdf", video: "https://youtu.be/keeqnciDVOo?si=TM4HZgd13TMviA8r" },
+            { name: "Business", lecturer: "Dr. Maria Rodriguez", venue: "Gamma Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2022/07/Business-Management-171-BUM171.pdf", video: "https://youtu.be/jffyqZRIcHc?si=RmavyZs8QzsVCQrf" },
+            { name: "Maths", lecturer: "Professor James Carter", venue: "Phi Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Mathematics-171-MAT171.pdf", video: "https://youtu.be/xX5caFM5xMY?si=PgDpmiWJ9IVv689l" },
+            { name: "Information Systems", lecturer: "Dr. Sarah Patel", venue: "Epsilon Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Information-Systems-171-INF171.pdf", video: "https://youtu.be/Qujsd4vkqFI?si=bTo5mIatJBblZUIS" }
         ]
     },
     {
@@ -42,16 +42,16 @@ const courses = [
         ]
     },
     {
-        title: "National Certificate: IT(Systems Development)",
+        title: "National Certificate: IT(Database Development)",
         code: "HIC001",
         duration: "1 year",
         description: "The amount of data around the globe is growing at an exponential rate. The rise of big data has totally revolutionized how businesses conduct themselves and understand their consumers, with organizations analysing massive amounts of data to spot trends and patterns and forecast future consumer behaviour. Given the above, it is unsurprising that the need for professional data gurus with extensive database abilities is growing. This certification will equip you with these abilities and enable you to enter the job market promptly. The information and skills you obtain will enable you to address operational business challenges in the data science domain, helping you to prosper in today's corporate climate.\n\nAfter completing the Higher Certificate: Information Technology (NQF level 6) in Database Development, the student can apply for Recognition of Prior Learning from Belgium Campus iTversity to continue his or her studies in one of the institution's other programs.\n•  Diploma in Information Technology\n•	Bachelor of Information Technology\n•  Bachelor of Computing",
         modules: [
-            { name: "Optimising Systems", lecturer: "Professor Laura Adams", venue: "Zeta Classroom", studyGuide: "study_guide_hic_optimising.pdf", video: "https://youtu.be/FYlLqOKdMhE?si=ZDR0hD29WHWiKdyT" },
-            { name: "Project Management", lecturer: "Dr. Michael Brown", venue: "Eta Classroom", studyGuide: "study_guide_hic_project_management.pdf", video: "https://youtu.be/XNDePDD_CV4?si=Vd8vRc1U7HjFFz7T" },
-            { name: "Security", lecturer: "Professor Karen Lewis", venue: "Theta Classroom", studyGuide: "study_guide_hic_security.pdf", video: "https://youtu.be/SfT4FMkh1-w?si=eVW5Tg0WBQXxpF-f" },
-            { name: "Enterprise Systems", lecturer: "Dr. Christopher White", venue: "Iota Classroom", studyGuide: "study_guide_hic_enterprise.pdf", video: "https://youtu.be/c9HfNg4a_Og?si=7V1XWEewDqWwhplx" },
-            { name: "Database Models", lecturer: "Professor Rachel Kim", venue: "Kappa Classroom", studyGuide: "study_guide_hic_database.pdf", video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
+            { name: "Operating Systems", lecturer: "Professor Laura Adams", venue: "Zeta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Operating-Systems-251-OPS251.pdf", video: "https://youtu.be/FYlLqOKdMhE?si=ZDR0hD29WHWiKdyT" },
+            { name: "Project Management", lecturer: "Dr. Michael Brown", venue: "Eta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Project-Management-251-PMM251.pdf", video: "https://youtu.be/XNDePDD_CV4?si=Vd8vRc1U7HjFFz7T" },
+            { name: "Security", lecturer: "Professor Karen Lewis", venue: "Theta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Security-251-SEC251.pdf", video: "https://youtu.be/SfT4FMkh1-w?si=eVW5Tg0WBQXxpF-f" },
+            { name: "Enterprise Systems", lecturer: "Dr. Christopher White", venue: "Iota Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Enterprise-Systems-251-ERP251.pdf", video: "https://youtu.be/c9HfNg4a_Og?si=7V1XWEewDqWwhplx" },
+            { name: "Database Models", lecturer: "Professor Rachel Kim", venue: "Kappa Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Database-Models-251-DBM251.pdf", video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
         ]
     }
 ];
