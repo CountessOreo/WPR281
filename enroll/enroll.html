@@ -1,39 +1,57 @@
-<!-- Hayley Treutens (578003) Kyle Smith (577999) Zirong Luo (600287) Jonathan Joubert (578085) Web Programming 281 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enroll in Course</title>
+    <title>Enroll in Course - Belgium Campus</title>
     <link rel="stylesheet" href="enroll.css">
 </head>
 <body>
-    <div class="enroll-container">
+    <header>
         <nav>
-            <a href="/home/home.html">&#8592 Back</a>
+            <a href="/home/home.html" aria-label="Go back to the home page">&#8592 Back</a>
         </nav>
-        <h1>Enroll <span style="color: black;">in a</span> <span style="color: #ebe831;">Course</span></h1>
-        <form id="enrollForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="course">Select Course:</label>
-            <select id="course" name="course" required>
-                <option value="HIC001">Higher Certificate</option>
-                <option value="DIP001">Diploma</option>
-                <option value="BIT001">BIT</option>
-                <option value="BCOM001">BCOM</option>
-            </select>
-            
-            <button type="submit" class="btn btn-background-slide" onclick="changeButtonText()" id="btn">Enroll</button>
-        </form>
-        <button id="clearBtn" onclick="clearForm()">Clear</button>
-        <div id="countdown" class="countdown"></div>
+    </header>
+    <main>
+        <section class="enroll-container">
+            <h1>Enroll <span class="highlight-black">in a</span> <span class="highlight-yellow">Course</span></h1>
+            <form id="enrollForm" aria-labelledby="enrollFormTitle">
+                <h2 id="enrollFormTitle">Enrollment Form</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+                
+                <label for="course">Select Course:</label>
+                <select id="course" name="course" required aria-required="true">
+                    <option value="HIC001">Higher Certificate</option>
+                    <option value="DIP001">Diploma</option>
+                    <option value="BIT001">BIT</option>
+                    <option value="BCOM001">BCOM</option>
+                </select>
+                
+                <button type="submit" class="btn" id="btn">Enroll</button>
+            </form>
+            <div role="alert" id="formErrorMessage" aria-live="assertive"></div>
+            <button id="clearBtn" onclick="clearForm()">Clear</button>
+            <div id="countdown" class="countdown"></div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <nav>
+                <ul>
+                    <li><a href="#" aria-label="Privacy Policy">Privacy Policy</a></li>
+                    <li><a href="#" aria-label="Terms of Service">Terms of Service</a></li>
+                    <li><a href="#" aria-label="Contact Us">Contact Us</a></li>
+                </ul>
+            </nav>
+            <p>&copy; 2024 Hayley Treutens (578003), Kyle Smith (577999), Zirong Luo (600287), Jonathan Joubert (578085). All rights reserved.</p>
+        </div>
+    </footer>
 
-    </div>
     <script src="enroll.js"></script>
 </body>
 </html>
