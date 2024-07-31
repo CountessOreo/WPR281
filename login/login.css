@@ -156,3 +156,18 @@ button:hover {
     margin-top: 10px;
     text-align: center;
 }
+
+.home-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-link a {
+    color: #f00e0e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.home-link a:hover {
+    text-decoration: underline;
+}
