@@ -76,7 +76,7 @@ nav a:visited {
     max-width: 600px;
     margin: 100px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #000000;
     border: 3px ridge var(--secondary-color);
     border-radius: 10px;
     box-shadow: 10px 10px 20px var(--primary-color);
@@ -93,6 +93,7 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
+    color: var(--text-color);
 }
 
 label {
