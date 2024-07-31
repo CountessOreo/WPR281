@@ -1,4 +1,3 @@
-<!-- Hayley Treutens (578003) Kyle Smith (577999) Zirong Luo (600287) Jonathan Joubert (578085) Web Programming 281 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,19 +9,16 @@
 </head>
 <body>
     <header class="header">
-        <div class="header-content">
-            <a href="../home/home.html" class="header-link">
-                <img src="../home/logo2.png" alt="Belgium Campus Logo" class="header-logo">
-                <span class="header-logo-text">Belgium Campus</span>
-            </a>
-        </div>
+        <a href="../home/home.html" class="header-link">
+            <img src="../home/logo2.png" alt="Belgium Campus Logo" class="header-logo">
+            <span class="header-logo-text">Belgium Campus</span>
+        </a>
     </header>
 
-    <div class="login-container">
-        <div class="login-header">
-
+    <main class="login-container">
+        <section class="login-header">
             <h1>Student Login</h1>
-        </div>
+        </section>
         <form id="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -32,13 +28,19 @@
             
             <button type="submit">Login</button>
         </form>
-        <p id="error-message"></p>
-    </div>
+        <p id="error-message" role="alert"></p>
+    </main>
 
-    <div class="home-link">
+    <nav class="home-link">
         <a href="/home/home.html">Return to Home Page</a>
-    </div>
+    </nav>
     
     <script src="login.js"></script>
+    
+    <footer>
+        <section class="footer-content">
+            <p>&copy; 2024 Hayley Treutens (578003), Kyle Smith (577999), Zirong Luo (600287), Jonathan Joubert (578085). All rights reserved.</p>
+        </section>
+    </footer>
 </body>
 </html>

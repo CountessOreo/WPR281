@@ -171,3 +171,20 @@ button:hover {
 .home-link a:hover {
     text-decoration: underline;
 }
+
+/* Footer Styling */
+footer {
+    background-color: var(--background-color);  
+    color: var(--text-color);  
+    text-align: center;  
+}
+
+.footer-content {
+    max-width: 1200px; 
+    margin: 60px; 
+}
+
+footer p {
+    margin: 20px ;  
+    font-size: 14px;  
+}
