@@ -110,7 +110,7 @@ function searchCourses() {
     }
 
     if (!found) {
-        const noCoursesItem = document.createElement('li');
+        const noCoursesItem = document.createElement('section');
         noCoursesItem.className = 'no-courses-found';
         noCoursesItem.innerText = 'No courses found';
         courseList.appendChild(noCoursesItem);
