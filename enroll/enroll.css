@@ -150,4 +150,15 @@ a:hover{
     color: #f00e0e;
 }
 
-
+#clearBtn{
+    margin-top: 20px;
+    margin-left: 200px;
+    width: 200px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(to right, #f00e0e, #ebe831);
+    color: #000000;
+    box-shadow: 0px 5px 10px black;
+}

@@ -55,9 +55,16 @@ function createFireworks() {
 
 //Changes "enroll" -> "enrolled" when clicking button
 function changeButtonText(){
-    if (document.getElementById("name").value == "" || document.getElementById("email").value == ""){
-        document.getElementById("btn").innerHTML = "Enroll";
-    }else{
+    if (document.getElementById("name").value != "" || document.getElementById("email").value != ""){
         document.getElementById("btn").innerHTML = "Enrolled";
+    }
+}
+
+//Clear Button to clear the form and change enrolled back to enroll
+function clearForm(){
+    if (document.getElementById("name").value != "" || document.getElementById("email").value ==""){
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("btn").innerHTML = "Enroll";
     }
 }
