@@ -66,5 +66,6 @@ function clearForm(){
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("btn").innerHTML = "Enroll";
+        document.getElementById("countdown").innerHTML = "";
     }
 }
