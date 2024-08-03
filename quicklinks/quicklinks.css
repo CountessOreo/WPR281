@@ -14,6 +14,7 @@ body {
     background-color: var(--background-color);
     margin: 0;
     padding: 20px;
+    color:#ffffff;
 }
 
 /* Header Styling */
@@ -223,4 +224,8 @@ footer nav ul li a {
 
 footer nav ul li a:hover {
     text-decoration: underline; 
+}
+
+.goback{
+    color: #f00e0e;
 }
