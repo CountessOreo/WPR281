@@ -250,6 +250,19 @@ button:hover {
     box-shadow: 0 0 25px var(--main-color);
 }
 
+#courseDetails button,
+#completedModulesSection button {
+    margin-bottom: 1rem; 
+}
+
+#courseDetails,
+#completedModulesSection {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 1rem; 
+    justify-content: center; 
+}
+
 /* Search Container */
 .search-container {
     text-align: center;
