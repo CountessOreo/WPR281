@@ -24,8 +24,8 @@ const courses = [
             { name: "Database", lecturer: "Dr. Emily Johnson", venue: "Alpha Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Database-Development-171-DBD171.pdf", video: "https://youtu.be/Zc14ZkWVhhs?si=il7svGI0BrQo0AtD" },
             { name: "Networking", lecturer: "Professor David Lee", venue: "Beta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Network-Development-171-NWD171.pdf", video: "https://youtu.be/keeqnciDVOo?si=TM4HZgd13TMviA8r" },
             { name: "Business", lecturer: "Dr. Maria Rodriguez", venue: "Gamma Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2022/07/Business-Management-171-BUM171.pdf", video: "https://youtu.be/jffyqZRIcHc?si=RmavyZs8QzsVCQrf" },
-            { name: "Maths", lecturer: "Professor James Carter", venue: "Phi Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Mathematics-171-MAT171.pdf", video: "https://youtu.be/xX5caFM5xMY?si=PgDpmiWJ9IVv689l" },
-            { name: "Information Systems", lecturer: "Dr. Sarah Patel", venue: "Epsilon Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Information-Systems-171-INF171.pdf", video: "https://youtu.be/Qujsd4vkqFI?si=bTo5mIatJBblZUIS" }
+            { name: "Maths", lecturer: "Professor James Carter", venue: "Phi Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Mathematics-171-MAT171.pdf", video: "https://www.youtube.com/watch?v=WsQQvHm4lSw" },
+            { name: "Information Systems", lecturer: "Dr. Sarah Patel", venue: "Epsilon Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/02/Information-Systems-171-INF171.pdf", video: "https://www.youtube.com/watch?v=g8059-8QDNk" }
         ]
     },
     {
@@ -49,9 +49,9 @@ const courses = [
         modules: [
             { name: "Operating Systems", lecturer: "Professor Laura Adams", venue: "Zeta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Operating-Systems-251-OPS251.pdf", video: "https://youtu.be/FYlLqOKdMhE?si=ZDR0hD29WHWiKdyT" },
             { name: "Project Management", lecturer: "Dr. Michael Brown", venue: "Eta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Project-Management-251-PMM251.pdf", video: "https://youtu.be/XNDePDD_CV4?si=Vd8vRc1U7HjFFz7T" },
-            { name: "Security", lecturer: "Professor Karen Lewis", venue: "Theta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Security-251-SEC251.pdf", video: "https://youtu.be/SfT4FMkh1-w?si=eVW5Tg0WBQXxpF-f" },
+            { name: "Security", lecturer: "Professor Karen Lewis", venue: "Theta Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Security-251-SEC251.pdf", video: "https://www.youtube.com/watch?v=jq_LZ1RFPfU" },
             { name: "Enterprise Systems", lecturer: "Dr. Christopher White", venue: "Iota Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Enterprise-Systems-251-ERP251.pdf", video: "https://youtu.be/c9HfNg4a_Og?si=7V1XWEewDqWwhplx" },
-            { name: "Database Models", lecturer: "Professor Rachel Kim", venue: "Kappa Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Database-Models-251-DBM251.pdf", video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
+            { name: "Database Models", lecturer: "Professor Rachel Kim", venue: "Kappa Classroom", studyGuide: "https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Database-Models-251-DBM251.pdf", video: "https://www.youtube.com/watch?v=OwQoj3GJfNY" }
         ]
     }
 ];
