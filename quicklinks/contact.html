@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="./quicklinks.css">
+    <link rel="icon" type="image/x-icon" href="/home/logo2.png">
+</head>
+<script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "JX6jFjt4mtxJjKpmrrv0G",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="JX6jFjt4mtxJjKpmrrv0G"
+    domain="www.chatbase.co"
+    defer>
+    </script>
+<body>
+    <header>
+        <nav>
+            <a href="/home/home.html" aria-label="Go back to the home page">&#8592 Home Page</a>
+        </nav>
+    </header>
+    <h1>Contact us </h1>
+    <div class="login-box">
+        <br>
+        <form class="contactform" method="post" action="#">
+        
+            <label for="name">Name and Surname:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <br><br>
+            
+            <label for="email">Email address: </label>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+            <br><br>
+            
+            <label for="sbjt">Subject Line:</label>
+            <input type="text" id="sbjt" name="sbjt" placeholder="Subject">
+
+            <br><br>
+            
+            <label for="msg">Message: </label>
+            <textarea id="msg" name="msg" placeholder="Type your message in here" required>
+            </textarea>
+            
+            <br><br>
+            
+            <input type="submit" class="btn" value="Send">
+        </form>
+        <script src="./contact.js"></script> 
+
+        <div class="login-links">
+            <span class="spacer"></span>
+            </button>
+        </div>
+
+    </div>
+</body>
+</html>
