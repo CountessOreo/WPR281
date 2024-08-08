@@ -37,32 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
             menuIcon.classList.remove('bx-x');
         }
     });
-
-    // Flip certification cards
-    document.querySelectorAll('.certification-card').forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
-        });
-    });
-
-    // Toggle projects based on difficulty level
-    function toggleProjects(level) {
-        var levels = ['beginner', 'intermediate', 'advanced'];
-
-        levels.forEach(function(lvl) {
-            var projectList = document.getElementById(lvl);
-            if (projectList) {
-                projectList.classList.remove('hidden');
-            }
-        });
-
-        if (level !== 'all') {
-            levels.forEach(function(lvl) {
-                var projectList = document.getElementById(lvl);
-                if (projectList && lvl !== level) {
-                    projectList.classList.add('hidden');
-                }
-            });
-        }
-    }
 });

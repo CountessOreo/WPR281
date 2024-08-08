@@ -140,8 +140,8 @@ function displayCourseDetails(course) {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'complete-checkbox';
-        checkbox.setAttribute('data-module', module.name); // Add data-module attribute
-        checkbox.checked = completedModules.includes(module.name); // Set checkbox state
+        checkbox.setAttribute('data-module', module.name); 
+        checkbox.checked = completedModules.includes(module.name); 
         checkbox.addEventListener('change', () => toggleModuleCompletion(module.name));
 
         row.insertCell(0).appendChild(checkbox);
@@ -150,7 +150,7 @@ function displayCourseDetails(course) {
         row.insertCell(2).innerText = module.venue;
         row.insertCell(3).innerHTML = 
             `<a href="${module.studyGuide}" download>Download Guide</a> | 
-             <a href="${module.video}" target="_blank">Watch Video</a>`;
+            <a href="${module.video}" target="_blank">Watch Video</a>`;
 
         // Apply strikeout if module is completed
         if (completedModules.includes(module.name)) {
