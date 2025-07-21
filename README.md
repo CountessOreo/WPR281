@@ -80,14 +80,15 @@ Make sure you have the following installed:
 - Open your browser and go to http://localhost:3000
 
 ### Project Structure
-
-Student-Enrollment-System/
-│
-├── public/              # Static assets (CSS, JS, Images)
-├── views/               # Frontend pages (EJS or HTML)
-├── routes/              # Express route handlers
-├── models/              # Database queries
-├── config/              # DB connection config
-├── app.js               # Main Express app entry
-├── package.json
-└── README.md
+   ```bash
+   Student-Enrollment-System/
+   │
+   ├── public/              # Static assets (CSS, JS, Images)
+   ├── views/               # Frontend pages (EJS or HTML)
+   ├── routes/              # Express route handlers
+   ├── models/              # Database queries
+   ├── config/              # DB connection config
+   ├── app.js               # Main Express app entry
+   ├── package.json
+   └── README.md
+   ```
