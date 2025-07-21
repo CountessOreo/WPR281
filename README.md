@@ -79,6 +79,8 @@ Make sure you have the following installed:
 5. **Access the app:**
 - Open your browser and go to http://localhost:3000
 
+---
+
 ### Project Structure
    ```bash
    Student-Enrollment-System/
